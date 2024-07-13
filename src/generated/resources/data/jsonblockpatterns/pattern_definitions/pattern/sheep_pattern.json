@@ -1,0 +1,28 @@
+{
+  "type": "jsonblockpatterns:normal",
+  "base": [
+    {
+      "type": "jsonblockpatterns:key",
+      "char": "w",
+      "tag": "minecraft:wool"
+    },
+    {
+      "type": "jsonblockpatterns:key",
+      "char": " ",
+      "tag": "jsonblockpatterns:all"
+    }
+  ],
+  "entity": "minecraft:sheep",
+  "head": {
+    "type": "jsonblockpatterns:key",
+    "block": "minecraft:carved_pumpkin",
+    "char": "i"
+  },
+  "pattern": {
+    "type": "jsonblockpatterns:pattern",
+    "keys": [
+      "i  ",
+      "www"
+    ]
+  }
+}
