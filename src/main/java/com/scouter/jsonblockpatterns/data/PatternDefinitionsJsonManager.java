@@ -3,6 +3,7 @@ package com.scouter.jsonblockpatterns.data;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.mojang.serialization.JsonOps;
+import net.fabricmc.fabric.api.resource.IdentifiableResourceReloadListener;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.packs.resources.ResourceManager;
@@ -13,12 +14,11 @@ import net.minecraft.world.level.block.Block;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
-public class PatternDefinitionsJsonManager extends SimpleJsonResourceReloadListener {
+import static com.scouter.jsonblockpatterns.JsonBlockPatterns.prefix;
+
+public class PatternDefinitionsJsonManager extends SimpleJsonResourceReloadListener implements IdentifiableResourceReloadListener {
 
     private static final Gson STANDARD_GSON = new Gson();
     public static final Logger LOGGER = LogManager.getLogger();
@@ -56,7 +56,7 @@ public class PatternDefinitionsJsonManager extends SimpleJsonResourceReloadListe
             }
         }
 
-        return headBlockPatterns.getOrDefault(block, new ArrayList<>());
+        return headBlockPatterns.getOrDefault(block, List.of());
     }
 
 
@@ -85,5 +85,15 @@ public class PatternDefinitionsJsonManager extends SimpleJsonResourceReloadListe
 
         this.blockPatternEntries = blockPatternEntries;
         LOGGER.info("Data loader for {} loaded {} jsons", this.folderName, this.blockPatternEntries.size());
+    }
+
+    @Override
+    public ResourceLocation getFabricId() {
+        return prefix("pattern_definitions/pattern");
+    }
+
+    @Override
+    public Collection<ResourceLocation> getFabricDependencies() {
+        return Collections.emptyList();
     }
 }

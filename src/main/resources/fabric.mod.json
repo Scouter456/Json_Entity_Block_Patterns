@@ -1,0 +1,34 @@
+{
+	"schemaVersion": 1,
+	"id": "jsonblockpatterns",
+	"version": "${version}",
+	"name": "jsonblockpatterns",
+	"description": "Mod that allows the definition of extra block patterns to spawn entities similar to iron golems",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://github.com/Scouter456/Json_Entity_Block_Patterns",
+		"sources": "https://github.com/Scouter456/Json_Entity_Block_Patterns"
+	},
+	"license": "MIT",
+	"icon": "assets/jsonblockpatterns/jsonentityblockpatterns.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+          "com.scouter.jsonblockpatterns.JsonBlockPatterns"
+		]
+	},
+	"mixins": [
+		"jsonblockpatterns.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.15.11",
+		"minecraft": "~1.21",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

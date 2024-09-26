@@ -8,14 +8,12 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.block.state.pattern.BlockPattern;
 import net.minecraft.world.level.block.state.pattern.BlockPatternBuilder;
 
 import java.util.HashSet;
 import java.util.List;
-import java.util.Objects;
 import java.util.Set;
 
 public class NormalBlockPatternBuilder implements BlockPatternBuilderCodec {
@@ -196,6 +194,6 @@ public class NormalBlockPatternBuilder implements BlockPatternBuilderCodec {
 
     @Override
     public BlockPatternBuilderType<? extends BlockPatternBuilderCodec> type() {
-        return BlockPatternBuilderRegistry.NORMAL_PATTERN.get();
+        return BlockPatternBuilderRegistry.NORMAL_PATTERN;
     }
 }

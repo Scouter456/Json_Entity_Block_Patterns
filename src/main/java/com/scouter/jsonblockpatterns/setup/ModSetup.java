@@ -1,4 +1,4 @@
-package com.scouter.jsonblockpatterns.setup;
+/*package com.scouter.jsonblockpatterns.setup;
 
 import com.scouter.jsonblockpatterns.JsonBlockPatterns;
 import com.scouter.jsonblockpatterns.registry.JBPRegistries;
@@ -25,3 +25,4 @@ public class ModSetup {
 
     }
 }
+*/

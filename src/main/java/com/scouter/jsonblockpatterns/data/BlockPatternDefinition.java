@@ -49,6 +49,6 @@ public class BlockPatternDefinition implements BlockPatternCodec {
 
     @Override
     public BlockPatternType<? extends BlockPatternCodec> type() {
-        return BlockPatternRegistry.PATTERN.get();
+        return BlockPatternRegistry.PATTERN;
     }
 }

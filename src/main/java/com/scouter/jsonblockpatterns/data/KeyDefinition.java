@@ -137,6 +137,6 @@ public class KeyDefinition implements KeyDefinitionCodec {
 
     @Override
     public KeyDefinitionType<? extends KeyDefinitionCodec> type() {
-        return KeyDefinitionRegistry.KEY.get();
+        return KeyDefinitionRegistry.KEY;
     }
 }

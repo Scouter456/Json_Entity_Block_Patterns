@@ -1,21 +1,30 @@
 package com.scouter.jsonblockpatterns.registry;
 
 import com.scouter.jsonblockpatterns.data.*;
+import net.fabricmc.fabric.api.event.registry.FabricRegistryBuilder;
+import net.fabricmc.fabric.api.event.registry.RegistryAttribute;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.neoforged.neoforge.registries.RegistryBuilder;
 
 import static com.scouter.jsonblockpatterns.JsonBlockPatterns.prefix;
 
 public class JBPRegistries {
     static { init(); }
-    //public static final Registry<MapCodec<? extends AnimationBuilderCodec>> ANIMATION_BUILDER_SERIALIZER = new RegistryBuilder<>(Keys.ANIMATION_BUILDER_SERIALIZERS).maxId(Integer.MAX_VALUE - 1).sync(false).create();
-    public static final Registry<BlockPatternBuilderType<?>> BLOCK_PATTERN_BUILDER_TYPE_SERIALIZER = new RegistryBuilder<>(Keys.BLOCK_PATTERN_BUILDER_TYPE_SERIALIZERS).maxId(Integer.MAX_VALUE - 1).sync(true).create();
 
-    public static final Registry<BlockPatternType<?>> BLOCK_PATTERN_TYPE_SERIALIZER = new RegistryBuilder<>(Keys.BLOCK_PATTERN_TYPE_SERIALIZERS).maxId(Integer.MAX_VALUE - 1).sync(true).create();
+    public static final Registry<BlockPatternBuilderType<?>> BLOCK_PATTERN_BUILDER_TYPE_SERIALIZER = FabricRegistryBuilder.createSimple(Keys.BLOCK_PATTERN_BUILDER_TYPE_SERIALIZERS)
+            .attribute(RegistryAttribute.SYNCED)
+            .buildAndRegister();
 
-    public static final Registry<KeyDefinitionType<?>> KEY_DEFINITION_TYPE_SERIALIZER = new RegistryBuilder<>(Keys.KEY_DEFINITION_TYPE_SERIALIZER).maxId(Integer.MAX_VALUE - 1).sync(false).create();
+    public static final Registry<BlockPatternType<?>> BLOCK_PATTERN_TYPE_SERIALIZER = FabricRegistryBuilder.createSimple(Keys.BLOCK_PATTERN_TYPE_SERIALIZERS)
+            .attribute(RegistryAttribute.SYNCED)
+            .buildAndRegister();
+
+    public static final Registry<KeyDefinitionType<?>> KEY_DEFINITION_TYPE_SERIALIZER = FabricRegistryBuilder.createSimple(Keys.KEY_DEFINITION_TYPE_SERIALIZER)
+            .attribute(RegistryAttribute.SYNCED)
+            .buildAndRegister();
+
+
 
     public static final class Keys {
 
